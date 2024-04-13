@@ -6,12 +6,12 @@ spec:
   volumeMode: Filesystem
   #volumeMode: Block
   #storageClassName: longhorn  # replace with your storage class
-  storageClassName: local-path
+  storageClassName: csi-cinder-classic
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 31Gi
+      storage: 20Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -20,13 +20,13 @@ metadata:
 spec:
   volumeMode: Filesystem
   #volumeMode: Block
-  storageClassName: longhorn  # replace with your storage class
+  storageClassName: csi-cinder-high-speed  # replace with your storage class
   #storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 31Gi
+      storage: 20Gi
 ---
 apiVersion: batch/v1
 kind: Job
